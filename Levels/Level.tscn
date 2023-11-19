@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bms6247od4iep"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Ground" type="TileMap" parent="."]
+cell_quadrant_size = 64
+format = 2
+
+[node name="Structures" type="TileMap" parent="."]
+cell_quadrant_size = 64
+format = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
