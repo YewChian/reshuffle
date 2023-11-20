@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dww1l7ay557ht"]
+[gd_scene load_steps=4 format=3 uid="uid://dww1l7ay557ht"]
 
 [ext_resource type="PackedScene" uid="uid://2gsqaeu183s" path="res://Visors/Visor.tscn" id="1_tlmov"]
+[ext_resource type="Script" path="res://Visors/Jimmy.gd" id="2_euke4"]
 [ext_resource type="Texture2D" uid="uid://cfy6cy4fa24y5" path="res://Assets/Visors/Hotdog.png" id="2_jmfri"]
 
 [node name="Jimmy" instance=ExtResource("1_tlmov")]
+script = ExtResource("2_euke4")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_jmfri")

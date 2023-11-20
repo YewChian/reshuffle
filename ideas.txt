@@ -1,0 +1,49 @@
+card mechanics:
+
+Area Control Cards: Cards that temporarily alter the battlefield, such as creating walls, slowing down areas, or zones that heal or buff allies. For example, a "Mystic Barrier" card could create a temporary wall that blocks enemies.
+
+Chain Combo Cards: Cards that increase in power or effect if used in a specific sequence. For instance, a "Fire Chain" card could deal more damage if preceded by a "Spark" card.
+
+Status Effect Cards: Cards that don't deal direct damage but apply effects like stun, poison, freeze, or confusion to enemies. For example, a "Frostbite" card could slow down all enemies in a certain area.
+
+Summoning Cards: Cards that summon creatures or allies for a short duration. These summoned entities could have their own attack patterns or abilities, like a "Guardian Spirit" card summoning a protective entity.
+
+Environmental Interaction Cards: Cards that interact with the game world, like a "Nature's Wrath" card that causes vines to emerge from the ground, entangling enemies.
+
+Utility Cards: Cards that provide non-combat benefits, such as increased movement speed, temporary invisibility, or the ability to see hidden traps or enemies. A "Wind's Grace" card could boost agility for a short time.
+
+Special Event Cards: Rare cards that trigger powerful effects or mini-games, like a "Meteor Shower" card that initiates a brief mini-game where the player aims meteors at enemies.
+
+Synergy Cards: Cards that gain additional effects when used with other specific cards, encouraging players to find effective combinations. A "Lightning Rod" card could become more powerful if used after a "Storm Call" card.
+
+Trap Cards: Cards that set traps on the battlefield, activating when an enemy steps on them. For example, a "Quicksand" card could create a trap that immobilizes enemies.
+
+Resource Manipulation Cards: Cards that affect the player's or enemies' resources, like mana, health, or even card draw speed. A "Mana Drain" card could temporarily reduce an enemy's ability to use special attacks.
+
+1. "Fetch"
+Effect: Dash to a distant point and retrieve an item (like a health boost or temporary power-up).
+Synergy: Follow with "Roll Over" to quickly return to your original position or to dodge incoming attacks.
+3. "Play Dead"
+Effect: Feign defeat, becoming temporarily invulnerable but immobile.
+Synergy: Use after "Roll Over" to avoid damage when rolling into a dangerous area, or before a powerful attack card to safely prepare for a counterattack.
+4. "Sniff Out"
+Effect: Reveals hidden enemies or items in the vicinity for a short period.
+Synergy: Use before cards like "Nibble" to ensure attacks are accurately targeted, especially in areas with hidden threats.
+5. "Tail Wag"
+Effect: Boost morale, slightly healing yourself or buffing your next attack.
+Synergy: Combine with offensive cards like "Nibble" for enhanced damage, or use after "Roll Over" for a quick health recovery.
+6. "Dig"
+Effect: Dig into the ground to uncover hidden items or create a temporary pitfall for enemies.
+Synergy: Use "Dig" to control the battlefield, followed by "Roll Over" to move to a safe distance.
+7. "Paw Swipe"
+Effect: A quick melee attack with moderate range.
+Synergy: Use after "Roll Over" to quickly close the gap and attack, or before "Nibble" for a quick one-two combo.
+8. "Loyal Guard"
+Effect: Temporarily increase defense or counterattack when hit.
+Synergy: Use after "Nibble" to protect yourself while in close range, or after "Roll Over" to prepare for incoming attacks.
+9. "Howl"
+Effect: Emit a loud howl, stunning or disorienting nearby enemies.
+Synergy: Follow with "Nibble" to attack stunned enemies, or use before "Roll Over" to create a safe path for retreat.
+10. "Puppy Eyes"
+Effect: Charm or distract an enemy, reducing their attack speed or making them hesitate.
+Synergy: Use before "Nibble" to ensure a successful hit, or after "Roll Over" to create an opening for further attacks.
