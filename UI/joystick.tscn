@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://mmyfatayp6gs"]
+
+[ext_resource type="Texture2D" uid="uid://crugo3cah3is5" path="res://Assets/UI/joyknob.png" id="2_phdw4"]
+[ext_resource type="Texture2D" uid="uid://bidhxucp2kd66" path="res://Assets/UI/joyring.png" id="2_w2jn3"]
+
+[sub_resource type="GDScript" id="GDScript_i2gbt"]
+script/source = "extends Control
+
+var posVector: Vector2
+@export var deadzone = 15
+
+
+func _on_button_2_pressed():
+	print(\"pressed\")
+"
+
+[sub_resource type="GDScript" id="GDScript_tlcpu"]
+script/source = "extends TextureRect
+
+@onready var parent = $\"..\"
+
+var pressing = false
+
+@export var maxLength = 50
+var deadzone = 15
+
+func _ready():
+	deadzone = parent.deadzone
+	maxLength *= parent.scale.x
+
+func _process(delta):
+	if pressing:
+		if get_global_mouse_position().distance_to(parent.global_position) <= maxLength:
+			global_position = get_global_mouse_position()
+		else:
+			var angle = parent.global_position.angle_to_point(get_global_mouse_position())
+			global_position.x = parent.global_position.x + cos(angle)*maxLength
+			global_position.y = parent.global_position.y + sin(angle)*maxLength
+		calculateVector()
+	else:
+		global_position = lerp(global_position, parent.global_position, delta*50)
+		parent.posVector = Vector2(0,0)
+		
+		
+func calculateVector():
+	if abs((global_position.x - parent.global_position.x)) >= deadzone:
+		parent.posVector.x = (global_position.x - parent.global_position.x)/maxLength
+	if abs((global_position.y - parent.global_position.y)) >= deadzone:
+		parent.posVector.y = (global_position.y - parent.global_position.y)/maxLength
+		
+		
+func _on_button_button_down():
+	print(pressing)
+	pressing = true
+
+
+func _on_button_button_up():
+	pressing = false
+
+
+func _on_button_pressed():
+	print(\"pressed\")
+"
+
+[node name="Joystick" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = SubResource("GDScript_i2gbt")
+
+[node name="Knob" type="TextureRect" parent="."]
+top_level = true
+layout_mode = 2
+texture = ExtResource("2_phdw4")
+script = SubResource("GDScript_tlcpu")
+
+[node name="Ring" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_w2jn3")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 30.0
+offset_right = 86.0
+offset_bottom = 38.0
+
+[connection signal="button_down" from="Button" to="Knob" method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="Knob" method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="Knob" method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

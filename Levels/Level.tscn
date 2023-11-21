@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://bms6247od4iep"]
+[gd_scene load_steps=5 format=3 uid="uid://bms6247od4iep"]
+
+[ext_resource type="Script" path="res://UI/Joystick.gd" id="1_icrtb"]
+[ext_resource type="Texture2D" uid="uid://bidhxucp2kd66" path="res://Assets/UI/joyring.png" id="1_x5krf"]
+[ext_resource type="Texture2D" uid="uid://crugo3cah3is5" path="res://Assets/UI/joyknob.png" id="2_30k8g"]
+[ext_resource type="Texture2D" uid="uid://d4c51k2yh1kds" path="res://Assets/Structures/BoundaryTree.png" id="4_fbnec"]
 
 [node name="Level" type="Node2D"]
 
@@ -10,5 +15,62 @@ format = 2
 cell_quadrant_size = 64
 format = 2
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Joystick" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -136.0
+offset_right = 64.0
+offset_bottom = -136.0
+grow_vertical = 0
+script = ExtResource("1_icrtb")
+
+[node name="Center" type="Control" parent="CanvasLayer/Joystick"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 33.0
+offset_bottom = 33.0
+
+[node name="JoyRingTextureRect2" type="TextureRect" parent="CanvasLayer/Joystick"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_x5krf")
+
+[node name="Joyknob" type="Control" parent="CanvasLayer/Joystick"]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 72.0
+offset_bottom = 72.0
+
+[node name="KnobTextureRect" type="TextureRect" parent="CanvasLayer/Joystick/Joyknob"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_30k8g")
+
+[node name="JoystickButton" type="Button" parent="CanvasLayer/Joystick"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="Marker" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_fbnec")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[connection signal="button_down" from="CanvasLayer/Joystick/JoystickButton" to="CanvasLayer/Joystick" method="_on_joystick_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/Joystick/JoystickButton" to="CanvasLayer/Joystick" method="_on_joystick_button_button_up"]
