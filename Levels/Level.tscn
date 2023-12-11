@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bms6247od4iep"]
+[gd_scene load_steps=6 format=3 uid="uid://bms6247od4iep"]
 
 [ext_resource type="Script" path="res://UI/Joystick.gd" id="1_icrtb"]
 [ext_resource type="Texture2D" uid="uid://bidhxucp2kd66" path="res://Assets/UI/joyring.png" id="1_x5krf"]
 [ext_resource type="Texture2D" uid="uid://crugo3cah3is5" path="res://Assets/UI/joyknob.png" id="2_30k8g"]
+[ext_resource type="Script" path="res://UI/CastButton.gd" id="4_ct5o3"]
 [ext_resource type="Texture2D" uid="uid://d4c51k2yh1kds" path="res://Assets/Structures/BoundaryTree.png" id="4_fbnec"]
 
 [node name="Level" type="Node2D"]
@@ -65,6 +66,18 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
+[node name="CastButton" type="Button" parent="CanvasLayer"]
+offset_left = 1048.0
+offset_top = 536.0
+offset_right = 1095.0
+offset_bottom = 567.0
+text = "CAST"
+script = ExtResource("4_ct5o3")
+
+[node name="TopCard" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Marker" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("4_fbnec")
@@ -74,3 +87,4 @@ zoom = Vector2(2, 2)
 
 [connection signal="button_down" from="CanvasLayer/Joystick/JoystickButton" to="CanvasLayer/Joystick" method="_on_joystick_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/Joystick/JoystickButton" to="CanvasLayer/Joystick" method="_on_joystick_button_button_up"]
+[connection signal="pressed" from="CanvasLayer/CastButton" to="CanvasLayer/CastButton" method="_on_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwg077e7n1kyq"]
+
+[ext_resource type="PackedScene" uid="uid://b5fbg02vkti61" path="res://Cards/Card.tscn" id="1_70q0e"]
+[ext_resource type="Script" path="res://Cards/BarkCard.gd" id="2_33tgs"]
+[ext_resource type="Texture2D" uid="uid://dku2ub6q4707p" path="res://Assets/Cards/Bark.png" id="2_rmbmh"]
+
+[node name="BarkCard" instance=ExtResource("1_70q0e")]
+script = ExtResource("2_33tgs")
+
+[node name="CardImage" parent="." index="0"]
+visible = true
+texture = ExtResource("2_rmbmh")
+
+[node name="HitboxShape" parent="Hitbox" index="0"]
+polygon = PackedVector2Array(0, 0, -40, -40, 40, -40)

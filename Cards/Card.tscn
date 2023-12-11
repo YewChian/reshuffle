@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b5fbg02vkti61"]
+
+[node name="Card" type="Node2D"]
+
+[node name="CardImage" type="Sprite2D" parent="."]
+visible = false
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="HitboxShape" type="CollisionPolygon2D" parent="Hitbox"]
+disabled = true
