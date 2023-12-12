@@ -31,4 +31,6 @@ func handle_input():
 
 func initialize_deck():
 	deck.append("bark")
-	get_tree().current_scene.get_node("CanvasLayer2D/TopCard").texture = CardData.card_dict[deck[0]]
+	deck.append("bark")
+	deck.append("bark")
+	reveal_top_card("Jimmy")
