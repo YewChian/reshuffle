@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://b5fbg02vkti61"]
+[gd_scene load_steps=3 format=3 uid="uid://b5fbg02vkti61"]
+
+[ext_resource type="FontFile" uid="uid://c2qriq65bkhy1" path="res://Fonts/YellowMagician.ttf" id="1_si1kt"]
+
+[sub_resource type="Theme" id="Theme_nud6m"]
+default_font = ExtResource("1_si1kt")
+default_font_size = 64
 
 [node name="Card" type="Node2D"]
 
@@ -6,6 +12,17 @@
 visible = false
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
-[node name="HitboxShape" type="CollisionPolygon2D" parent="Hitbox"]
-disabled = true
+[node name="CheckMeterParent" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CardQualityLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 320.0
+offset_bottom = 160.0
+scale = Vector2(0.2, 0.2)
+theme = SubResource("Theme_nud6m")
+text = "CARD QUALITY"

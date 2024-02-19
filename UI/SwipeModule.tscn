@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhxbekpvd5h01"]
+
+[ext_resource type="Script" path="res://UI/SwipeModule.gd" id="1_rv3gt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4jyt"]
+size = Vector2(293, 189)
+
+[node name="SwipeModule" type="Area2D"]
+script = ExtResource("1_rv3gt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(147, 0)
+shape = SubResource("RectangleShape2D_f4jyt")

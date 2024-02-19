@@ -1,14 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dww1l7ay557ht"]
+[gd_scene load_steps=10 format=3 uid="uid://bsu06xoacgvgj"]
 
-[ext_resource type="PackedScene" uid="uid://2gsqaeu183s" path="res://Visors/Visor.tscn" id="1_tlmov"]
-[ext_resource type="Script" path="res://Visors/Jimmy.gd" id="2_euke4"]
-[ext_resource type="Texture2D" uid="uid://cfy6cy4fa24y5" path="res://Assets/Visors/Hotdog.png" id="2_jmfri"]
+[ext_resource type="PackedScene" uid="uid://2gsqaeu183s" path="res://Visors/Visor.tscn" id="1_h4sev"]
+[ext_resource type="Script" path="res://Visors/SleepySpaniel.gd" id="2_j5am5"]
+[ext_resource type="Texture2D" uid="uid://cbvrc0cpd8tyf" path="res://Assets/Visors/Spaniel.png" id="3_cmv4a"]
+[ext_resource type="PackedScene" uid="uid://bo8nnn4f67air" path="res://Nature/StandardNature.tscn" id="4_0e0u8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rlj02"]
-radius = 18.0278
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ehv7i"]
-radius = 22.0227
+[sub_resource type="CircleShape2D" id="CircleShape2D_j0sa3"]
+radius = 17.0294
 
 [sub_resource type="Animation" id="Animation_mybwm"]
 resource_name = "JimmyBark"
@@ -100,26 +98,17 @@ _data = {
 "SleepySpanielBark": SubResource("Animation_o7vmh")
 }
 
-[node name="Jimmy" groups=["Jimmy"] instance=ExtResource("1_tlmov")]
-collision_mask = 384
-script = ExtResource("2_euke4")
+[node name="SleepySpaniel" instance=ExtResource("1_h4sev")]
+collision_layer = 256
+script = ExtResource("2_j5am5")
 
 [node name="Sprite2D" parent="." index="2"]
-texture = ExtResource("2_jmfri")
+texture = ExtResource("3_cmv4a")
 
-[node name="Skeleton" parent="." index="3"]
-shape = SubResource("CircleShape2D_rlj02")
+[node name="StandardNature" parent="." index="3" instance=ExtResource("4_0e0u8")]
 
-[node name="Hurtbox" parent="." index="5"]
-collision_layer = 8
-collision_mask = 4
-
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource("CircleShape2D_ehv7i")
-
-[node name="CastedCardSprite" parent="." index="7"]
-hframes = 8
-vframes = 8
+[node name="Skeleton" parent="." index="4"]
+shape = SubResource("CircleShape2D_j0sa3")
 
 [node name="FinishCastAnimationPlayer" type="AnimationPlayer" parent="CastedCardSprite" index="0"]
 libraries = {

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo8nnn4f67air"]
+
+[ext_resource type="Script" path="res://Nature/StandardNature.gd" id="1_7atuo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtmw4"]
+radius = 106.005
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7gxn5"]
+radius = 25.02
+
+[node name="StandardNature" type="Node2D" groups=["Nature"]]
+script = ExtResource("1_7atuo")
+
+[node name="StateTimer" type="Timer" parent="."]
+
+[node name="StartMoveRadius" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartMoveRadius"]
+shape = SubResource("CircleShape2D_vtmw4")
+
+[node name="StartCastRadius" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartCastRadius"]
+shape = SubResource("CircleShape2D_7gxn5")
+
+[connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
+[connection signal="body_entered" from="StartMoveRadius" to="." method="_on_start_move_radius_body_entered"]
+[connection signal="body_entered" from="StartCastRadius" to="." method="_on_start_cast_radius_body_entered"]

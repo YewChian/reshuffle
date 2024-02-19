@@ -4,6 +4,7 @@ var is_pressing
 var deadzone = 5
 var ring_radius = 24
 var direction = Vector2(0,0)
+var last_direction = Vector2(0,0)
 
 
 func _on_joystick_button_button_down():
@@ -30,11 +31,10 @@ func _process(delta):
 		$Joyknob.global_position = lerp($Joyknob.global_position, $Center.global_position, delta*50)
 		direction = Vector2(0,0)
 	
-#	print(direction)
-		
 		
 func calculate_direction():
 	if abs(($Joyknob.global_position.x - $Center.global_position.x)) >= deadzone:
 		direction.x = ($Joyknob.global_position.x - $Center.global_position.x) / ring_radius
 	if abs(($Joyknob.global_position.y - $Center.global_position.y)) >= deadzone:
 		direction.y = ($Joyknob.global_position.y - $Center.global_position.y) / ring_radius
+	last_direction = direction

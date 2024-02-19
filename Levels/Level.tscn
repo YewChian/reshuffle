@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bms6247od4iep"]
+[gd_scene load_steps=12 format=3 uid="uid://bms6247od4iep"]
 
 [ext_resource type="Script" path="res://UI/Joystick.gd" id="1_icrtb"]
 [ext_resource type="Texture2D" uid="uid://bidhxucp2kd66" path="res://Assets/UI/joyring.png" id="1_x5krf"]
@@ -6,6 +6,11 @@
 [ext_resource type="Script" path="res://UI/CastButton.gd" id="4_ct5o3"]
 [ext_resource type="Texture2D" uid="uid://d4c51k2yh1kds" path="res://Assets/Structures/BoundaryTree.png" id="4_fbnec"]
 [ext_resource type="Texture2D" uid="uid://diucwddj1k65n" path="res://Assets/Cards/CardBack.png" id="5_vx6tb"]
+[ext_resource type="Texture2D" uid="uid://ktf5xms1am7j" path="res://Assets/Cards/Nap.png" id="6_ow6rf"]
+[ext_resource type="Texture2D" uid="uid://bme7c5uocr80n" path="res://Assets/Cards/NapProgress.png" id="7_wpg3r"]
+[ext_resource type="Texture2D" uid="uid://d001ub7ipyrv8" path="res://Assets/UI/hpUnder.png" id="8_e2pfx"]
+[ext_resource type="Texture2D" uid="uid://b0hcvlu1gx536" path="res://Assets/UI/hpOver.png" id="9_236qv"]
+[ext_resource type="PackedScene" uid="uid://bhxbekpvd5h01" path="res://UI/SwipeModule.tscn" id="10_wm3f7"]
 
 [node name="Level" type="Node2D"]
 
@@ -18,17 +23,16 @@ rendering_quadrant_size = 64
 format = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="Joystick" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = -136.0
-offset_right = 64.0
-offset_bottom = -136.0
-grow_vertical = 0
+anchors_preset = 0
+offset_left = -296.0
+offset_top = 16.0
+offset_right = -296.0
+offset_bottom = 16.0
+scale = Vector2(2, 2)
 script = ExtResource("1_icrtb")
 
 [node name="Center" type="Control" parent="CanvasLayer/Joystick"]
@@ -68,16 +72,26 @@ offset_right = 64.0
 offset_bottom = 64.0
 
 [node name="CastButton" type="Button" parent="CanvasLayer"]
-offset_left = 1048.0
-offset_top = 536.0
-offset_right = 1095.0
-offset_bottom = 567.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1554.0
+offset_top = -727.0
+offset_right = -1507.0
+offset_bottom = -696.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
 text = "CAST"
 script = ExtResource("4_ct5o3")
 
 [node name="DeckMContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -310.0
+offset_top = -170.0
+offset_right = -182.0
+offset_bottom = -10.0
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 
@@ -85,9 +99,33 @@ theme_override_constants/margin_top = 32
 layout_mode = 2
 texture = ExtResource("5_vx6tb")
 
+[node name="NapDisplay" type="TextureRect" parent="CanvasLayer/DeckMContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_ow6rf")
+
+[node name="NapProgress" type="TextureRect" parent="CanvasLayer/DeckMContainer/NapDisplay"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(0, 128)
+texture = ExtResource("7_wpg3r")
+
 [node name="CardDisplays" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
+
+[node name="hpBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = -271.0
+offset_top = -20.0
+offset_right = -207.0
+offset_bottom = 44.0
+pivot_offset = Vector2(-52, -30)
+texture_under = ExtResource("8_e2pfx")
+texture_progress = ExtResource("9_236qv")
+
+[node name="SwipeModule" parent="CanvasLayer" instance=ExtResource("10_wm3f7")]
 
 [node name="Marker" type="Sprite2D" parent="."]
 visible = false
